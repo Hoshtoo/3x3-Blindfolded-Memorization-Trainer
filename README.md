@@ -7,3 +7,8 @@ Program finally outputs whether the edges, corners, and entire cube were solved 
 
 To find out more about the Old Pochmann blindfolded solving method:
 https://jperm.net/bld
+
+To use:
+    Review config.txt and adjust any settings as necessary
+    Add algorithms to the algorithms.txt file
+    Run main.py and follow the command-line instructions
