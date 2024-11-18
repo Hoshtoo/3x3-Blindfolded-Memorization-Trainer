@@ -425,36 +425,3 @@ class cube:
         self.cube[face][3] = self.cube[face][7]
         self.cube[face][7] = self.cube[face][5]
         self.cube[face][5] = placeholder
-
-Cube = cube()
-Cube.executeAlg(input('Enter the scramble seperated by spaces: '))
-
-for letter in (input('Enter the edge memorization seperated by spaces: ').split()):
-    for x in range(len(letter)):
-        Cube.executeAlg(Cube.edgeSetupMoves[letter[x]][0])
-        Cube.executeAlg("R U R' U' R' F R2 U' R' U' R U R' F'")
-        Cube.executeAlg(Cube.edgeSetupMoves[letter[x]][1])
-
-if (input('If there is parity, type y: ') == 'y'):
-    Cube.executeAlg("R U' R' U' R U R D R' U' R D' R' U2 R'")
-
-for letter in (input('Enter the corner memorization seperated by spaces: ').split()):
-    for x in range(len(letter)):
-        try:
-            Cube.executeAlg(Cube.cornerSetupMoves[letter[x]][0])
-            Cube.executeAlg("R U' R' U' R U R' F' R U R' U' R' F R")
-            Cube.executeAlg(Cube.cornerSetupMoves[letter[x]][1])
-        except:
-            pass
-
-if Cube.cube == Cube.startingCube:
-    print("CORRECT MEMORIZATION")
-else:
-    for x in range(6):
-        if not (Cube.cube[x][1] == Cube.cube[x][3] and Cube.cube[x][3] == Cube.cube[x][5] and Cube.cube[x][5] == Cube.cube[x][7] and Cube.cube[x][7] == x):
-            print("Edges were not correct")
-            break
-    for x in range(6):
-        if not (Cube.cube[x][0] == Cube.cube[x][2] and Cube.cube[x][2] == Cube.cube[x][6] and Cube.cube[x][6] == Cube.cube[x][8] and Cube.cube[x][8] == x):
-            print("Corners were not correct")
-            break
